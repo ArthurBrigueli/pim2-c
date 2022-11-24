@@ -20,6 +20,8 @@ float aumentoSalario(float a, float b){
     return salarioFinal;
 }
 
+//usuario = admin
+//senha = admin
 void login(){
     char usuario[50]="admin", senha[50] = "admin", setUsuario[50], setSenha[50];
     bool permLogin=false;
@@ -54,6 +56,8 @@ void main(){
 
     listaFuncionario funcionario[100]; //cria 100 funcionarios onde vao ser preenchidos durante o uso do programa
 
+    //usuario = admin
+    //senha = admin
     login(); //area do codigo do login na linha <23>
 
     do{
