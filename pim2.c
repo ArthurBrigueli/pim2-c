@@ -11,7 +11,7 @@ typedef struct{
 }listaFuncionario;
 
 
-//funçao que recebe o salario e a porcentagem de aumento
+//função que recebe o salario e a porcentagem de aumento
 //retorna o salario com o aumento
 float aumentoSalario(float a, float b){
     float salarioFinal=0, aumento=0;
@@ -23,6 +23,7 @@ float aumentoSalario(float a, float b){
 //usuario = admin
 //senha = admin
 void login(){
+    setlocale(LC_ALL, "Portuguese");
     char usuario[50]="admin", senha[50] = "admin", setUsuario[50], setSenha[50];
     bool permLogin=false;
 
@@ -48,7 +49,7 @@ void login(){
 
 void main(){
     setlocale(LC_ALL, "Portuguese");
-    int opcao, quantFunc=0, opcaoMenuEdit, i, achouNome, achouCpf, opcaoEdit1, opcaoAumento;
+    int opcao, quantFunc=-1, opcaoMenuEdit, i, achouNome, achouCpf, opcaoEdit1, opcaoAumento;
     char editNome[50], editCpf[50], visuCpf[50], cpfAumento[50], infoCargo[50];
     bool poNome = false, poCpf=false, poCargo=false;
     int possicaoVisu, possicaoAumento;
@@ -63,7 +64,7 @@ void main(){
     do{
         printf("----------Menu----------\n");
         printf("[1] Adicionar funcionario\n");
-        printf("[2] Editar informaçao do funcionario\n");
+        printf("[2] Editar informaçao do funcionario.\n");
         printf("[3] Visualizar funcionarios\n");
         printf("[4] Adicionar aumento de salario\n");
         printf("[0] Sair do sistema\n");
@@ -75,6 +76,9 @@ void main(){
 
         switch(opcao){
             case 1: //adicionar funcionario
+                    if(quantFunc < 0){ //serve para zerar o quantFunc apenas uma vez, pois sera zerado apenas quando o primeiro funcionario for adicionado
+                        quantFunc = 0; //se nao ouver nenhum funcionario cadastrado, ao adicionar o quantFunc ira para 0, para poder adicionar na primeira possiçao
+                    }
                     fflush(stdin);
                     printf("----------Adicionar funcionario----------\n");
                     printf("Nome: ");
